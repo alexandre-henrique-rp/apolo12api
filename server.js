@@ -102,15 +102,13 @@ app.post('/cadastrar/cliente', async (req, res) => {
 app.get('/roboscrap/:cnpj', async (req, res) => {
 
      const cnpj = req.params.cnpj;
-
      const response = await botscrap(cnpj);
-
      res.json(response);
 });
 
 
 const server = http.createServer(app);
-server.listen(process.env.PORT || 3039, function () {
+server.listen(process.env.PORT || 3040, function () {
      console.log('servidor em execução')
 });
 
