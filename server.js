@@ -56,7 +56,7 @@ app.post('/cadastrar/cliente', async (req, res) => {
      const cliente = await Cliente.findOne({
           attributes: ['dt_agenda', 'andamento', 'nome', 'email', 'rg', 'cpf', 'cnpj', 'unidade', 'tipocd', 'hr_agenda', 'formapgto', 'valorcd', 'ct_parcela', 'telefone', 'dtnascimento', 'reg_cnh', 'cei', 'razaosocial', 'validacao', 'referencia', 'comissaoparceiro', 'scp', 'obscont', 'estatos_pgto', 'observacao', 'historico', 'custoCdpar'],
           where: {
-               email: req.body.email,
+               dt_agenda: req.body.dt_agenda,
                cpf: req.body.cpf,
                andamento: req.body.andamento,
                nome: req.body.nome,
@@ -65,23 +65,14 @@ app.post('/cadastrar/cliente', async (req, res) => {
                unidade: req.body.unidade,
                tipocd: req.body.tipocd,
                hr_agenda: req.body.hr_agenda,
-               formapgto: req.body.formapgto,
-               valorcd: req.body.valorcd,
-               ct_parcela: req.body.ct_parcela,
+               valorcd: req.body.valorcd,           
                telefone: req.body.telefone,
                dtnascimento: req.body.dtnascimento,
-               reg_cnh: req.body.reg_cnh,
-               cei: req.body.cei,
                razaosocial: req.body.razaosocial,
-               validacao: req.body.validacao,
-               referencia: req.body.referencia,
-               comissaoparceiro: req.body.comissaoparceiro,
-               scp: req.body.scp,
                obscont: req.body.obscont,
                estatos_pgto: req.body.estatos_pgto,
                observacao: req.body.observacao,
-               historico: req.body.historico,
-               custoCdpar: req.body.custoCdpar
+               
           }
 
      })
