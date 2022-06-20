@@ -16,6 +16,7 @@ const { eAdmin } = require('./middlewares/auth');
 // table
 const User = require('./models/User');
 const Cliente = require('./models/Cliente');
+const Agend = require('./models/Agend');
 
 // Bibliotecas
 const botscrap = require('./models/botscrap');
@@ -95,6 +96,21 @@ app.get('/roboscrap/:cnpj', async (req, res) => {
      const cnpj = req.params.cnpj;
      const response = await botscrap(cnpj);
      res.json(response);
+});
+
+app.get('/calendar', async (req, res) => {
+ 
+     const calendar = await Agend.findAll({
+          attributes: ['data', 'dia_semana', 'feriado'],
+     })
+          .then((calendar) => {
+               res.json(calendar)
+               console.log(calendar)
+          })
+          .catch((err) => {
+               console.log(err)
+          })
+          
 });
 
 

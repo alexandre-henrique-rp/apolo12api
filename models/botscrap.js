@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 const botscrap = async (cnpj) => {
     
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         defaultViewport: null,
     });
     const page = await browser.newPage();

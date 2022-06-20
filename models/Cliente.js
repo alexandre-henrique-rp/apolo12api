@@ -65,8 +65,8 @@ const Cliente = database.define('fcweb', { //nome da tabela a ser conectada
      obs_agenda: Sequelize.TEXT,
      reg_cnh: Sequelize.TEXT,
      custoCdpar: Sequelize.TEXT,
-     
-     
+
+
 }, { freezeTableName: true }); // função para conectar tebela ja criada
 
 //criar ou sicronizar a tabela
