@@ -66,14 +66,14 @@ app.post('/cadastrar/cliente', async (req, res) => {
                unidade: req.body.unidade,
                tipocd: req.body.tipocd,
                hr_agenda: req.body.hr_agenda,
-               valorcd: req.body.valorcd,           
+               valorcd: req.body.valorcd,
                telefone: req.body.telefone,
                dtnascimento: req.body.dtnascimento,
                razaosocial: req.body.razaosocial,
                obscont: req.body.obscont,
                estatos_pgto: req.body.estatos_pgto,
                observacao: req.body.observacao,
-               
+
           }
 
      })
@@ -99,9 +99,9 @@ app.get('/roboscrap/:cnpj', async (req, res) => {
 });
 
 app.get('/calendar', async (req, res) => {
- 
+
      const calendar = await Agend.findAll({
-          attributes: ['data', 'dia_semana', 'feriado'],
+          attributes: ['id', 'data', 'dia_semana', 'feriado'],
      })
           .then((calendar) => {
                res.json(calendar)
@@ -110,7 +110,7 @@ app.get('/calendar', async (req, res) => {
           .catch((err) => {
                console.log(err)
           })
-          
+
 });
 
 
