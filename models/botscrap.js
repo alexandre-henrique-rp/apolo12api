@@ -27,3 +27,4 @@ const botscrap = async (cnpj) => {
     }
 }
 module.exports = botscrap;
+

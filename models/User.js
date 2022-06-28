@@ -53,3 +53,4 @@ const User = db.define('AGRV', {
 // User.sync();
 
 module.exports = User;
+
