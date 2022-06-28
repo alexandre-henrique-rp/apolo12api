@@ -17,4 +17,4 @@ jobs:
         server: ${{ secrets.ftp_host }}
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_pass }}
-        server-dir: /var/www/html/backend/toten/
+        server-dir: public_html/var/www/html/backend/toten/
