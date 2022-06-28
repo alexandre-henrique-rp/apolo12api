@@ -17,6 +17,7 @@ const { eAdmin } = require('./middlewares/auth');
 const User = require('./models/User');
 const Cliente = require('./models/Cliente');
 const Agend = require('./models/Agend');
+const Conex = require('./models/Conex');
 
 // Bibliotecas
 const botscrap = require('./models/botscrap');
@@ -55,13 +56,12 @@ app.post('/cadastrar/cliente', async (req, res) => {
 
 
      const cliente = await Cliente.findOne({
-          attributes: ['dt_agenda', 'andamento', 'nome', 'email', 'rg', 'cpf', 'cnpj', 'unidade', 'tipocd', 'hr_agenda', 'formapgto', 'valorcd', 'ct_parcela', 'telefone', 'dtnascimento', 'reg_cnh', 'cei', 'razaosocial', 'validacao', 'referencia', 'comissaoparceiro', 'scp', 'obscont', 'estatos_pgto', 'observacao', 'historico', 'custoCdpar'],
+          attributes: ['dt_agenda', 'andamento', 'nome', 'email', 'cpf', 'contador', 'historico', 'validacao', 'cnpj', 'unidade', 'tipocd', 'hr_agenda', 'formapgto', 'valorcd', 'ct_parcela', 'telefone', 'dtnascimento', 'reg_cnh', 'cei', 'razaosocial', 'validacao', 'referencia', 'comissaoparceiro', 'scp', 'obscont', 'estatos_pgto', 'observacao', 'historico', 'custoCdpar'],
           where: {
                dt_agenda: req.body.dt_agenda,
                cpf: req.body.cpf,
                andamento: req.body.andamento,
                nome: req.body.nome,
-               rg: req.body.rg,
                cnpj: req.body.cnpj,
                unidade: req.body.unidade,
                tipocd: req.body.tipocd,
@@ -73,6 +73,9 @@ app.post('/cadastrar/cliente', async (req, res) => {
                obscont: req.body.obscont,
                estatos_pgto: req.body.estatos_pgto,
                observacao: req.body.observacao,
+               contador: req.body.contador,
+               historico: req.body.historico,
+               validacao: req.body.validacao
 
           }
 
@@ -113,6 +116,21 @@ app.get('/calendar', async (req, res) => {
 
 });
 
+
+app.get('/teste/conexao', async (req, res) => {
+
+     const conex = await Conex.findAll({
+          attributes: ['id', 'msg'],
+     })
+          .then((conex) => {
+               res.json(conex)
+               console.log(conex)
+          })
+          .catch((err) => {
+               console.log(err)
+          })
+
+});
 
 const server = http.createServer(app);
 server.listen(process.env.PORT || 3040, function () {
