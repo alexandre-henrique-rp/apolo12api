@@ -19,4 +19,4 @@ jobs:
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_pass }}
         server-dir: /var/www/html/backend/toten/
-        protocol: sftp
+        protocol: ftp
