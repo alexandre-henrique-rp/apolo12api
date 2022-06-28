@@ -14,7 +14,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ${{ secrets.ftp_host }}
-        username: ${{ secrets.ftp_user }}
-        password: ${{ secrets.ftp_pass }}
-        server-dir: /var/www/html/backend/toten/
+        server: redebrasilrp.vps-kinghost.net
+        username: kingdev
+        password: Rede123!
+        server-dir: ./var/www/html/backend/toten/
