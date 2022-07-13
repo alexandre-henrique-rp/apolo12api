@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express'); //chamando a biblioteca express //
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const puppeteer = require('puppeteer');
+
 
 
 const app = express();
@@ -20,7 +20,7 @@ const Agend = require('./models/Agend');
 const Conex = require('./models/Conex');
 
 // Bibliotecas
-const botscrap = require('./models/botscrap');
+const botscrap = require('./models/botscrap2');
 
 // retorno em Json
 
@@ -99,6 +99,7 @@ app.get('/roboscrap/:cnpj', async (req, res) => {
      const cnpj = req.params.cnpj;
      const response = await botscrap(cnpj);
      res.json(response);
+
 });
 
 app.get('/calendar', async (req, res) => {

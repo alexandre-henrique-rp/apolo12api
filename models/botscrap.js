@@ -1,11 +1,15 @@
-const puppeteer = require('puppeteer');
+// const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
+
+
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin())
 
 
 const botscrap = async (cnpj) => {
-    
+
     const browser = await puppeteer.launch({
-        headless: true,
-        defaultViewport: null,
+        headless: false,
     });
     const page = await browser.newPage();
     await page.goto('https://www.situacao-cadastral.com/');
@@ -18,7 +22,7 @@ const botscrap = async (cnpj) => {
     const grip = await page.$eval('div[id="resultado"] > span > i', i => i.innerText);
     console.log(grip)
     await browser.close();
-    
+
     try {
         console.log(grip)
         return grip;
