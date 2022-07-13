@@ -129,7 +129,6 @@ app.get('/teste/conexao', async (req, res) => {
           .catch((err) => {
                console.log(err)
           })
-
 });
 
 const server = http.createServer(app);
