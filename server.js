@@ -52,45 +52,16 @@ app.get('/totem/:id', async (req, res, next) => {
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // create cliente
+
+
 app.post('/cadastrar/cliente', async (req, res) => {
-
-
-     const cliente = await Cliente.findOne({
-          attributes: ['dt_agenda', 'andamento', 'nome', 'email', 'cpf', 'contador', 'historico', 'validacao', 'cnpj', 'unidade', 'tipocd', 'hr_agenda', 'formapgto', 'valorcd', 'ct_parcela', 'telefone', 'dtnascimento', 'reg_cnh', 'cei', 'razaosocial', 'validacao', 'referencia', 'comissaoparceiro', 'scp', 'obscont', 'estatos_pgto', 'observacao', 'historico', 'custoCdpar'],
-          where: {
-               dt_agenda: req.body.dt_agenda,
-               cpf: req.body.cpf,
-               andamento: req.body.andamento,
-               nome: req.body.nome,
-               cnpj: req.body.cnpj,
-               unidade: req.body.unidade,
-               tipocd: req.body.tipocd,
-               hr_agenda: req.body.hr_agenda,
-               valorcd: req.body.valorcd,
-               telefone: req.body.telefone,
-               dtnascimento: req.body.dtnascimento,
-               razaosocial: req.body.razaosocial,
-               obscont: req.body.obscont,
-               estatos_pgto: req.body.estatos_pgto,
-               observacao: req.body.observacao,
-               contador: req.body.contador,
-               historico: req.body.historico,
-               validacao: req.body.validacao
-
-          }
-
-     })
      var dados = req.body;
-
      await Cliente.create(dados)
           .then(() => {
-
-               return res.json({ error: false, message: 'cliente cadastrado com sucesso!' });
-
+               return res.status(200).json({message: 'cliente cadastrado com sucesso!' });
           })
-
           .catch(err => {
-               return res.status(400).json({ error: true, message: 'Erro: Não foi possível cadastrar o usuário!' });
+               return res.status(400).json({message: 'Erro: Não foi possível cadastrar o usuário!' });
           });
 });
 
